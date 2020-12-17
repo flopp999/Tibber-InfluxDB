@@ -2,7 +2,7 @@
 # Please use my invite-link to help me with my work, we get 500skr each :)
 # https://tibber.com/se/invite/8af85f51
 # Version 1.0 2020-11-10
-# Script to fetch hourly prices from Tibber, create a file to be used to store the data into InfluxDB
+# Script to fetch hourly prices from Tibber and write directly to InfluxDB version 1.8
 
 import json,datetime,requests # import libraries
 
