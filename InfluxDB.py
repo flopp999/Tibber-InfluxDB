@@ -42,5 +42,4 @@ for data in parsed["data"]["viewer"]["homes"][0]["currentSubscription"]["priceIn
 
 try:
   client.write_points(jsondata, database=database, time_precision='n', batch_size=10000, protocol='json') # skriver data till Influx
-except exceptions.InfluxDBClientError:
-  logger.error("Couldn\'t save data to InfluxDB database: ")
+
