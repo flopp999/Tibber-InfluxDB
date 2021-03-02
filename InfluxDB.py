@@ -31,17 +31,17 @@ jsondata = []
 for data in parsed["data"]["viewer"]["homes"][0]["currentSubscription"]["priceInfo"]["today"]:  # go through each hour
     time = data["startsAt"]  # store the datetime
     utctime = str(datetime.datetime.strptime(time, "%Y-%m-%dT%H:%M:%S%z").timestamp())[:-2]  # change datetime to epoch(seconds) and without decimals
-    total = str(round(data["total"]*100,2))  # recalc to kronor instead of öre
+    total = str(round(data["total"]*100, 2))  # recalc to kronor instead of öre
     jsondata.append({"measurement": measurement, "time": time, "fields": {field: float(total)}})
     print(jsondata)
 
 for data in parsed["data"]["viewer"]["homes"][0]["currentSubscription"]["priceInfo"]["tomorrow"]:  # go through each hour
-    time = data["startsAt"] # store the datetime
+    time = data["startsAt"]  # store the datetime
     utctime = str(datetime.datetime.strptime(time, "%Y-%m-%dT%H:%M:%S%z").timestamp())[:-2]  # change datetime to epoch(seconds) and without decimals
-    total = str(round(data["total"]*100,2))  # recalc to kronor instead of öre
+    total = str(round(data["total"]*100, 2))  # recalc to kronor instead of öre
     jsondata.append({"measurement": measurement, "time": time, "fields": {field: float(total)}})
 
 try:
     client.write_points(jsondata, database=database, time_precision='n', batch_size=10000, protocol='json')  # skriver data till Influx
-except exceptions.InfluxDBClientError:	
+except exceptions.InfluxDBClientError:
     print("Couldn\'t save data to InfluxDB database: ")
