@@ -4,7 +4,7 @@
 # Version 1.0 2020-11-10
 # Script to fetch hourly prices from Tibber and write directly to InfluxDB version 1.8
 
-import json,datetime,requests # import libraries
+import json, datetime, requests # import libraries
 
 from influxdb import InfluxDBClient, exceptions
 # Tibber
