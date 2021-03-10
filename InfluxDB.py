@@ -1,6 +1,7 @@
 # Created by Daniel Nilsson
 # Please use my invite-link to help me with my work, we get 500skr each :)
 # https://tibber.com/se/invite/8af85f51
+# Support me with a coffee https://www.buymeacoffee.com/flopp999
 # Version 1.0 2020-11-10
 # Script to fetch hourly prices from Tibber and write directly to InfluxDB version 1.8
 
